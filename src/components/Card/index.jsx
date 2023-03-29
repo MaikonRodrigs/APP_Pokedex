@@ -12,12 +12,13 @@ const Card = () => {
   async function fetchPokemon(id) {
     let { json } = await request(`https://pokeapi.co/api/v2/pokemon/${id}`);
     setPokemon(json)
+    console.log(pokemon.name)
   }
 
   async function getAllPokemons() {
     const baseURL = 'https://pokeapi.co/api/v2/'
 
-    const res = await fetch(`${baseURL}pokemon/?limit=20&offset=0`)
+    const res = await fetch(`${baseURL}pokemon/?offset=40&limit=40`)
     const data = await res.json()
 
     const promises = data.results.map(async (pokemon) => {
@@ -32,24 +33,27 @@ const Card = () => {
   const number = '123'
 
   useEffect(() => {
-    // fetchPokemon('1')
     getAllPokemons()
   }, [])
 
-  function onPress() {
-    setPokemon('Raichu')
-  }
+
+
 
 
   return (
     <>
+      {/* <S.Row>
+        <S.Imge source={{ uri: pokemon.sprites?.other?.['official-artwork']?.front_default }}
+          styles={{ positin: 'fixed' }}
+        />
+      </S.Row> */}
       <S.Container>
         <S.Row>
           {pokemons.map((pokemon) => {
             return (
               <S.Card
                 key={pokemon?.id}
-                onPress={onPress}
+                onPress={() => fetchPokemon(pokemon?.id)}
               >
                 <S.Imge source={{ uri: pokemon.sprites?.other?.['official-artwork']?.front_default }} />
                 <S.Name>{pokemon?.name}</S.Name>
