@@ -11,7 +11,12 @@ const Search = () => {
           type="text"
           placeholder="Name or number"
           value={value}
-          onChangeText={setValue}
+          onChangeText={text => setValue(text)}
+          // keyboardType="url"
+          inputMode="search"
+          // clearButtonMode
+          clearTextOnFocus
+          // enablesReturnKeyAutomatically={true}
         />
         <S.SendIcon />
       </S.Container>

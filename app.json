@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "pokApp",
-    "slug": "pokApp",
+    "slug": "pokedexapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.maikonrodrigs.pokedexapp"
     },
     "android": {
       "adaptiveIcon": {
@@ -25,6 +26,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a92bf506-afa0-49cf-b5a7-94caa1113782"
+      }
+    },
+    "owner": "maikonrodrigs"
   }
 }
