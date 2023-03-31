@@ -14,14 +14,14 @@ const Search = () => {
           onChangeText={text => setValue(text)}
           // keyboardType="url"
           inputMode="search"
-          // clearButtonMode
           clearTextOnFocus
           // enablesReturnKeyAutomatically={true}
-        />
+          />
         <S.SendIcon />
       </S.Container>
     </>
   );
+
 }
 
 export default Search;

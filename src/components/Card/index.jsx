@@ -12,7 +12,6 @@ const Card = () => {
   async function fetchPokemon(id) {
     let { json } = await request(`https://pokeapi.co/api/v2/pokemon/${id}`);
     setPokemon(json)
-    console.log(pokemon.name)
   }
 
   async function getAllPokemons() {
@@ -36,6 +35,11 @@ const Card = () => {
     getAllPokemons()
   }, [])
 
+  function onPressPokemon(id) {
+    fetchPokemon(id)
+    console.log('FetchPokemon:' + pokemon?.name)
+  }
+
 
 
 
@@ -48,12 +52,13 @@ const Card = () => {
         />
       </S.Row> */}
       <S.Container>
+        <Text>{pokemon?.name}</Text>
         <S.Row>
           {pokemons.map((pokemon) => {
             return (
               <S.Card
                 key={pokemon?.id}
-                onPress={() => fetchPokemon(pokemon?.id)}
+                onPress={() => onPressPokemon(pokemon?.id)}
               >
                 <S.Imge source={{ uri: pokemon.sprites?.other?.['official-artwork']?.front_default }} />
                 <S.Name>{pokemon?.name}</S.Name>
