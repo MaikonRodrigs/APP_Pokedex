@@ -10,7 +10,7 @@ export const Container = styled.ScrollView.attrs({
     // flex: 1,
   },
 })`
-  height: 600px;
+  height: 600px; 
   width: 100%;
   margin-top: 20px;
 `;
@@ -44,6 +44,7 @@ export const Name = styled.Text`
   margin-top: 15px;
   text-align: center;
 `;
+
 export const NumberId = styled.Text`
   text-align: center;
 
